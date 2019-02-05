@@ -16,6 +16,11 @@ html {
     line-height: 1.4;
 }
 
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -116,8 +121,8 @@ html,body {
     display: grid;
     grid-gap: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "wrap";
+    grid-template-rows: auto auto;
+    grid-template-areas: "wrap" "footer";
     background: var(--main-bg,#222);
     color: var(--main-color,#ccc);
     min-height: 100vh;
@@ -145,6 +150,11 @@ header {
     justify-content: center;
     align-items: flex-end;
     min-height: 90vh;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
 }
 
 #title {
@@ -336,7 +346,9 @@ header {
         grid-gap: 0;
         grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: auto auto;
-        grid-template-areas: ". wrap .";
+        grid-template-areas: 
+            ". wrap ." 
+            ". footer .";
         background: var(--main-bg,#222);
         color: var(--main-color,#ccc);
         min-height: 100vh;
@@ -370,7 +382,7 @@ header {
         grid-template-areas: 
             "create-img perform-img earn-img"
             "create perform earn";
-        align-items: center;
+        align-items: baseline;
         justify-items: center;
         text-align: center;
     }
